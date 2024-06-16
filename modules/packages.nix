@@ -1,6 +1,5 @@
-{ pkgs, ...}:
-{
- environment.systemPackages = with pkgs; [
+{ pkgs, ... }: {
+  environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     neovim
     home-manager
@@ -14,12 +13,12 @@
     libgcc
     gcc
     ripgrep
-    wl-clipboard 
+    wl-clipboard
     # wm packages
     waybar
     dunst
     libnotify
-    swww 
+    swww
     rofi-wayland
     networkmanagerapplet
     xfce.thunar

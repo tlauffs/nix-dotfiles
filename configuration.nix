@@ -5,38 +5,36 @@
 { inputs, config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./modules/bootloader.nix
-      ./modules/networking.nix
-	./modules/timzone.nix
-	./modules/user.nix
-	./modules/hyprland.nix
-	./modules/sound.nix
-	./modules/fonts.nix
-	./modules/packages.nix
-      ./modules/service.nix 
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./modules/bootloader.nix
+    ./modules/networking.nix
+    ./modules/timzone.nix
+    ./modules/user.nix
+    ./modules/hyprland.nix
+    ./modules/sound.nix
+    ./modules/fonts.nix
+    ./modules/packages.nix
+    ./modules/service.nix
+  ];
 
-   # Allow unfree packages
+  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   xdg.portal.enable = true;
-  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
   #flakes enable
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
- 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   programs.mtr.enable = true;
   programs.gnupg.agent = {
-     enable = true;
-     enableSSHSupport = true;
+    enable = true;
+    enableSSHSupport = true;
   };
- 
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];

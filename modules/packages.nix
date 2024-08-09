@@ -18,12 +18,15 @@
     ripgrep
     wl-clipboard
     wget
+    just
+    nodejs
     # wm packages
     waybar
     dunst
     libnotify
     swww
     rofi-wayland
+    wofi
     networkmanagerapplet
     xfce.thunar
     #apps

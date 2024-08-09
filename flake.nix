@@ -1,5 +1,5 @@
 {
-  description = "My Nix Configuration";
+  description = "Tim's Nix Configuration";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
@@ -10,7 +10,8 @@
   };
 
   outputs = { self, nixpkgs, home-manager, ... }:
-    let system = "x86_64-linux";
+    let 
+    	system = "x86_64-linux";
     in {
       formatter.x86_64-linux =
         nixpkgs.legacyPackages.x86_64-linux.nixfmt-classic;

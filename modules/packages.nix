@@ -1,9 +1,12 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim 
     neovim
     home-manager
     alacritty
+    kitty
+    tmux
+    fzf
     neofetch
     pavucontrol
     git
@@ -14,6 +17,7 @@
     gcc
     ripgrep
     wl-clipboard
+    wget
     # wm packages
     waybar
     dunst
@@ -25,7 +29,6 @@
     #apps
     firefox
     google-chrome
-    #  wget
   ];
 
 }

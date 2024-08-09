@@ -38,9 +38,9 @@
   # plain files is through 'home.file'.
   home.file = {
     # Symlink tmux configuration
-    ".config/tmux/tmux.conf".source = ./tmux/tmux.conf;
+    ".config/tmux/tmux.conf".source = ./config/tmux/tmux.conf;
     # Symlink Neovim configuration directory
-    ".config/nvim".source = ./nvim;
+    ".config/nvim".source = ./config/nvim;
   };
 
   # Home Manager can also manage your environment variables through

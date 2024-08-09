@@ -1,5 +1,7 @@
 { config, pkgs, ... }:
-
+let
+  configPath = builtins.path { path = ./config; };
+in
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -38,9 +40,9 @@
   # plain files is through 'home.file'.
   home.file = {
     # Symlink tmux configuration
-    ".config/tmux/tmux.conf".source = ./config/tmux/tmux.conf;
+    ".config/tmux/tmux.conf".source = "${configPath}/tmux/tmux.conf";
     # Symlink Neovim configuration directory
-    ".config/nvim".source = ./config/nvim;
+    ".config/nvim".source = "${configPath}/nvim";
   };
 
   # Home Manager can also manage your environment variables through

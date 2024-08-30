@@ -6,6 +6,7 @@
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
+      nix-colors.url = "github:misterio77/nix-colors";
     };
   };
 
@@ -18,10 +19,12 @@
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [ ./configuration.nix ];
+	  specialArgs = { inherit nix-colors; };
       };
       homeConfigurations.tim = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
         modules = [ ./home.nix ];
+	  extraSpecialArgs = { inherit nix-colors; };
       };
     };
 }

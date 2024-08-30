@@ -1,8 +1,16 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 let
   configPath = builtins.path { path = ./config; };
 in
 {
+  imports = [
+    inputs.nix-colors.homeManagerModules.default
+    ./modules/kitty.nix
+  ];
+
+  # set user color scheme
+  colorScheme = inputs.nix-colors.colorSchemes.gruvbox-material-dark-hard;
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "tim";

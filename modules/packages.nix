@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs; [
-    vim 
+    vim
     neovim
     home-manager
     alacritty
@@ -26,7 +26,6 @@
     libnotify
     swww
     rofi-wayland
-    wofi
     networkmanagerapplet
     xfce.thunar
     #apps

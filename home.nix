@@ -1,15 +1,12 @@
 { config, pkgs, inputs, ... }:
-let
-  configPath = builtins.path { path = ./config; };
-in
-{
-  imports = [
-    inputs.nix-colors.homeManagerModules.default
-    ./modules/kitty.nix
-  ];
+let configPath = builtins.path { path = ./config; };
+in {
+  imports =
+    [ inputs.nix-colors.homeManagerModules.default ./modules/kitty.nix ];
 
   # set user color scheme
-  colorScheme = inputs.nix-colors.colorSchemes.gruvbox-material-dark-hard;
+  # colorScheme = inputs.nix-colors.colorSchemes.gruvbox-material-dark-hard;
+  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -31,6 +28,8 @@ in
     vscode
     discord
     obsidian
+    awf
+    bat
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of

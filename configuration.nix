@@ -18,7 +18,7 @@
     ./modules/service.nix
     ./modules/theming.nix
   ];
- 
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 

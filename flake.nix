@@ -21,10 +21,11 @@
         specialArgs = { inherit inputs; };
         modules = [ ./configuration.nix inputs.stylix.nixosModules.stylix ];
       };
-      homeConfigurationstim = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations.tim = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
         extraSpecialArgs = { inherit inputs; };
-        modules = [ ./home.nix ];
+	  # stylix must be added to config and home manager twice, due to standalone usage of home manager
+        modules = [ ./home.nix inputs.stylix.homeManagerModules.stylix];
       };
     };
 }

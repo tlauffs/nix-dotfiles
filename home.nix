@@ -1,8 +1,11 @@
 { config, pkgs, inputs, ... }:
 let configPath = builtins.path { path = ./config; };
 in {
-  imports =
-    [ inputs.nix-colors.homeManagerModules.default ./modules/kitty.nix ];
+  imports = [
+    inputs.nix-colors.homeManagerModules.default
+    ./modules/theming.nix
+    # ./modules/kitty.nix
+  ];
 
   # set user color scheme
   # colorScheme = inputs.nix-colors.colorSchemes.gruvbox-material-dark-hard;

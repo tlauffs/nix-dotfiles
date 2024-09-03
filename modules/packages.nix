@@ -3,7 +3,6 @@
     vim
     neovim
     home-manager
-    alacritty
     kitty
     tmux
     fzf
@@ -27,7 +26,6 @@
     swww
     rofi-wayland
     networkmanagerapplet
-    xfce.thunar
     #apps
     firefox
     google-chrome

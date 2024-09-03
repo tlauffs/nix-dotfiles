@@ -1,13 +1,12 @@
 { inputs, pkgs, config, ... }: {
 
-  #gtk
-  # gtk.enable = true;
-
-  #qt
-  # qt.enable = true;
-
   # Theming
   stylix.enable = true;
+  stylix.autoEnable = true;
+  # stylix.homeManagerIntegration.autoImport = false;
+  # stylix.homeManagerIntegration.followSystem = false;
+
+  stylix.image = ../config/images/rainbow-cat.png;
   stylix.base16Scheme = {
     base00 = "1e1e2e"; # base
     base01 = "181825"; # mantle

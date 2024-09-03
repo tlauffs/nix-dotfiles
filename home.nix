@@ -2,17 +2,13 @@
 let configPath = builtins.path { path = ./config; };
 in {
   imports = [
-    inputs.nix-colors.homeManagerModules.default
+    # stylix must be added to config and home manager twice, due to standalone usage of home manager
+    inputs.stylix.homeManagerModules.stylix
     ./modules/theming.nix
-    # ./modules/kitty.nix
+    ./modules/kitty.nix
   ];
 
-  # set user color scheme
-  # colorScheme = inputs.nix-colors.colorSchemes.gruvbox-material-dark-hard;
-  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
-
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
+  # Home Manager needs a bit of information about you and the paths it should manage.
   home.username = "tim";
   home.homeDirectory = "/home/tim";
 
@@ -31,8 +27,10 @@ in {
     vscode
     discord
     obsidian
-    awf
     bat
+    alacritty
+    btop
+    xfce.thunar
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of

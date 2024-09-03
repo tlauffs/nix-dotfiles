@@ -6,7 +6,9 @@
 
 {
   imports = [ # Include the results of the hardware scan.
+    inputs.stylix.nixosModules.stylix
     ./hardware-configuration.nix
+    ./modules/theming.nix
     ./modules/bootloader.nix
     ./modules/networking.nix
     ./modules/timzone.nix
@@ -16,7 +18,6 @@
     ./modules/fonts.nix
     ./modules/packages.nix
     ./modules/service.nix
-    ./modules/theming.nix
   ];
 
   # Allow unfree packages
@@ -25,7 +26,7 @@
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
-  #flakes enable
+  # flakes enable
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Some programs need SUID wrappers, can be configured further or are

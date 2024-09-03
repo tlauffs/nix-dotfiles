@@ -6,6 +6,9 @@ in {
     inputs.stylix.homeManagerModules.stylix
     ./modules/theming.nix
     ./modules/kitty.nix
+    ./modules/waybar.nix
+    ./modules/alacritty.nix
+    ./modules/dunst.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should manage.

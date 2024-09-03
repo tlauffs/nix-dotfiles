@@ -6,6 +6,7 @@
   # stylix.homeManagerIntegration.autoImport = false;
   # stylix.homeManagerIntegration.followSystem = false;
 
+  # the stylix.image option currently needs to be set but is not bieng used since all colors are from base16Scheme
   stylix.image = ../config/images/rainbow-cat.png;
   stylix.base16Scheme = {
     base00 = "1e1e2e"; # base
@@ -25,5 +26,35 @@
     base0E = "cba6f7"; # mauve
     base0F = "f2cdcd"; # flamingo
   };
+
+  # cursor
+  stylix.cursor.package = pkgs.catppuccin-cursors.mochaLight;
+  stylix.cursor.name = "Catppuccin-Mocha-Light-Cursors";
+  stylix.cursor.size = 16;
+
+  # fonts
+  stylix.fonts = {
+    monospace = {
+      package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
+      name = "JetBrainsMono Nerd Font Mono";
+    };
+    sansSerif = {
+      package = pkgs.dejavu_fonts;
+      name = "DejaVu Sans";
+    };
+    serif = {
+      package = pkgs.dejavu_fonts;
+      name = "DejaVu Serif";
+    };
+  };
+  stylix.fonts.sizes = {
+    applications = 12;
+    terminal = 12;
+    desktop = 10;
+    popups = 10;
+  };
+
+  # terminal theming 
+  stylix.opacity = { terminal = 0.9; };
 
 }

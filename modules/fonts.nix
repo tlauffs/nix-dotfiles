@@ -7,13 +7,15 @@
       noto-fonts-emoji
       twemoji-color-font
       font-awesome
+      dejavu_fonts
       powerline-fonts
       powerline-symbols
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     ];
     fontconfig = {
       defaultFonts = {
-        sansSerif = [ "JetBrainsMono" ];
+        serif = [ "DejaVu Serif" ];
+        sansSerif = [ "DejaVu Sans" ];
         monospace = [ "JetBrainsMono" ];
       };
     };

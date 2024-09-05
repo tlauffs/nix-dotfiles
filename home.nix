@@ -6,7 +6,7 @@ in {
     inputs.stylix.homeManagerModules.stylix
     ./modules/theming.nix
     ./modules/kitty.nix
-    ./modules/waybar.nix
+    ./modules/waybar/waybar.nix
     ./modules/alacritty.nix
     ./modules/dunst.nix
   ];

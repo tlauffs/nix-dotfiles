@@ -29,6 +29,11 @@
     #apps
     firefox
     google-chrome
+    (catppuccin-sddm.override {
+      flavor = "mocha";
+      font = "JetBrainsMono";
+      fontSize = "9";
+      loginBackground = false;
+    })
   ];
-
 }

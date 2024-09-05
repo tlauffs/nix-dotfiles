@@ -8,6 +8,7 @@
   imports = [ # Include the results of the hardware scan.
     inputs.stylix.nixosModules.stylix
     ./hardware-configuration.nix
+    ./modules/sddm.nix
     ./modules/theming.nix
     ./modules/bootloader.nix
     ./modules/networking.nix

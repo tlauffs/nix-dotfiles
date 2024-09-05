@@ -13,7 +13,7 @@
     ./modules/networking.nix
     ./modules/timzone.nix
     ./modules/user.nix
-    ./modules/hyprland.nix
+    ./modules/hyprland/global.nix
     ./modules/sound.nix
     ./modules/fonts.nix
     ./modules/packages.nix

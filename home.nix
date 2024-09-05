@@ -5,6 +5,7 @@ in {
     # stylix must be added to config and home manager twice, due to standalone usage of home manager
     inputs.stylix.homeManagerModules.stylix
     ./modules/theming.nix
+    ./modules/hyprland/home.nix
     ./modules/kitty.nix
     ./modules/waybar/waybar.nix
     ./modules/alacritty.nix

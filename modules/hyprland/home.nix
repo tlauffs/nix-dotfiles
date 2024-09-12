@@ -1,14 +1,14 @@
 { pkgs, lib, config, ... }:
 let
   startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
-          ${pkgs.swww}/bin/swww init &
-          ${pkgs.swww}/bin/swww img ${../../config/images/rainbow-cat.png} &
-    	nm-applet --indicator & 
-    	waybar &
-    	dunst &
-          sleep 1
-    	kitty
-        	'';
+      ${pkgs.swww}/bin/swww init &
+      ${pkgs.swww}/bin/swww img ${../../config/images/rainbow-cat.png} &
+      nm-applet --indicator & 
+      # waybar &
+      dunst &
+      sleep 1
+      kitty
+    	'';
 in {
   wayland.windowManager.hyprland = {
     enable = true;

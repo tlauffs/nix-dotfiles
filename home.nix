@@ -4,6 +4,8 @@ in {
   imports = [
     # stylix must be added to config and home manager twice, due to standalone usage of home manager
     inputs.stylix.homeManagerModules.stylix
+    inputs.ags.homeManagerModules.default
+    ./modules/ags/ags.nix
     ./modules/theming.nix
     ./modules/hyprland/home.nix
     ./modules/kitty.nix

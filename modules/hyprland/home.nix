@@ -1,13 +1,13 @@
 { pkgs, lib, config, ... }:
 let
   startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
-      ${pkgs.swww}/bin/swww init &
-      ${pkgs.swww}/bin/swww img ${../../config/images/rainbow-cat.png} &
+      # ${pkgs.swww}/bin/swww init &
+      # ${pkgs.swww}/bin/swww img ${../../config/images/rainbow-cat.png} &
       nm-applet --indicator & 
+	sleep 1
       # waybar &
-      ags &
       # dunst &
-      sleep 1
+      ags &
       kitty
     	'';
 in {
@@ -122,6 +122,16 @@ in {
         "$mod SHIFT, 7, movetoworkspace, 7"
         "$mod SHIFT, 8, movetoworkspace, 8"
         "$mod SHIFT, 9, movetoworkspace, 9"
+	  # resize 
+	  "$mod SHIFT, l, resizeactive, 50 0"
+        "$mod SHIFT, h, resizeactive, -50 0"
+        "$mod SHIFT, k, resizeactive, 0 -50"
+        "$mod SHIFT, j, resizeactive, 0 50"
+	  # move active
+	  "$mod CTRL, l, movewindow, r"
+        "$mod CTRL, h, movewindow, l"
+        "$mod CTRL, k, movewindow, d"
+        "$mod CTRL, j, movewindow, u"
         # brightness and volume
         ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+"
         ",XF86AudioLowerVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"

@@ -4,7 +4,7 @@ let
       # ${pkgs.swww}/bin/swww init &
       # ${pkgs.swww}/bin/swww img ${../../config/images/rainbow-cat.png} &
       nm-applet --indicator & 
-	sleep 1
+	sleep 0.5
       # waybar &
       # dunst &
       ags &
@@ -130,8 +130,8 @@ in {
 	  # move active
 	  "$mod CTRL, l, movewindow, r"
         "$mod CTRL, h, movewindow, l"
-        "$mod CTRL, k, movewindow, d"
-        "$mod CTRL, j, movewindow, u"
+        "$mod CTRL, j, movewindow, d"
+        "$mod CTRL, k, movewindow, u"
         # brightness and volume
         ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+"
         ",XF86AudioLowerVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"

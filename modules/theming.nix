@@ -7,7 +7,7 @@
   # stylix.homeManagerIntegration.followSystem = false;
 
   # the stylix.image option currently needs to be set but is not bieng used since all colors are from base16Scheme
-  stylix.image = ../config/images/rainbow-cat.png;
+  stylix.image = ../config/images/Cloudsday.jpg;
   stylix.base16Scheme = {
     base00 = "1e1e2e"; # base
     base01 = "181825"; # mantle

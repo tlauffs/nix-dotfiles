@@ -19,9 +19,12 @@
     wget
     just
     nodejs
+    # tools
+    flameshot
+    brightnessctl
     # wm packages
     waybar
-    dunst
+    # dunst
     libnotify
     swww
     rofi-wayland

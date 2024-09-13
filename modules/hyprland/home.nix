@@ -5,7 +5,8 @@ let
       ${pkgs.swww}/bin/swww img ${../../config/images/rainbow-cat.png} &
       nm-applet --indicator & 
       # waybar &
-      dunst &
+      ags &
+      # dunst &
       sleep 1
       kitty
     	'';
@@ -26,7 +27,7 @@ in {
         gaps_in = "2";
         gaps_out = "4";
         border_size = "2";
-        layout = "dwindle";
+        layout = "master";
       };
 
       device = {
@@ -88,11 +89,12 @@ in {
         # actions
         "$mod, RETURN, exec, $terminal"
         "$mod, q, killactive"
-        "$mod SHIFT, d, exit"
+        "$mod SHIFT, e, exit"
         "$mod, f, exec, $fileManager"
         "$mod, b, togglefloating"
         "$mod, d, exec, $dmenu"
         "$mod SHIFT, d, exec, $menu"
+        "$mod SHIFT, F, fullscreen,"
         # change focus
         "$mod, h, movefocus, l"
         "$mod, j, movefocus, d"
@@ -120,6 +122,12 @@ in {
         "$mod SHIFT, 7, movetoworkspace, 7"
         "$mod SHIFT, 8, movetoworkspace, 8"
         "$mod SHIFT, 9, movetoworkspace, 9"
+        # brightness and volume
+        ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+"
+        ",XF86AudioLowerVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"
+        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ",XF86MonBrightnessDown, exec, brightnessctl s 10%-"
+        ",XF86MonBrightnessUp, exec, brightnessctl s +10%"
       ];
       bindm = [
         #move resize with mouse

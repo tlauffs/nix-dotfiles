@@ -11,12 +11,15 @@ in {
     ./modules/kitty.nix
     ./modules/waybar/waybar.nix
     ./modules/alacritty.nix
-    ./modules/dunst.nix
+    # ./modules/dunst.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should manage.
   home.username = "tim";
   home.homeDirectory = "/home/tim";
+
+  gtk.iconTheme.package = pkgs.papirus-icon-theme;
+  gtk.iconTheme.name = "Papirus";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -57,6 +60,7 @@ in {
     ".config/tmux/tmux.conf".source = "${configPath}/tmux/tmux.conf";
     # Symlink Neovim configuration directory
     ".config/nvim".source = "${configPath}/nvim";
+    ".config/ags".source = ./modules/ags/config;
   };
 
   # Home Manager can also manage your environment variables through

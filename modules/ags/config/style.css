@@ -1,0 +1,173 @@
+window.bar {
+	background-color: @theme_bg_color;
+	color: @theme_fg_color;
+}
+
+.purple {
+	color: @purple_1;
+}
+
+.purple highlight {
+	background-color: @purple_1;
+}
+
+.yellow {
+	color: @yellow_1;
+}
+
+.yellow highlight {
+	background-color: @yellow_1;
+}
+
+.blue {
+	color: @blue_1;
+}
+
+.blue highlight {
+	background-color: @blue_1;
+}
+
+.red {
+	color: @red_1;
+}
+
+.red highlight {
+	background-color: @red_1;
+}
+
+.green {
+	color: @green_1;
+}
+
+.green highlight {
+	background-color: @green_1;
+}
+
+.orange {
+	color: @orange_1;
+}
+
+.orange highlight {
+	background-color: @orange_1;
+}
+
+
+.button-link {
+	min-width: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+	background-color: transparent;
+}
+
+.button-link:active {
+	background-color: @theme_selected_bg_color;
+}
+
+.button-link:hover {
+	color: @blue_1;
+}
+
+label {
+	font-weight: bold;
+}
+
+.workspaces {
+	margin: 0px 7px;
+}
+
+.workspaces button {
+	background-color: @window_fg_color;
+	min-width: 6px;
+	min-height: 6px;
+	padding: 3px 3px;
+	margin: 12px 3px;
+	border-radius: 100px;
+}
+
+.workspaces button.focused {
+	background-color: @blue_1;
+	min-width: 16px;
+}
+
+.client-title {
+	color: @theme_selected_bg_color;
+}
+
+.notification {
+	color: yellow;
+}
+
+.battery_bar block.high {
+	background-color: @green_1;
+}
+
+.bar_notification {
+	color: @red_1;
+}
+
+levelbar block,
+highlight {
+	border-radius: 5px;
+	min-height: 10px;
+}
+
+
+/* notifications */
+window.notification-popups box.notifications {
+	padding: 1em;
+}
+
+.notification-icon {
+	min-width: 68px;
+	min-height: 68px;
+	margin-right: 1em;
+}
+
+.notification-icon image {
+	font-size: 58px;
+	margin: 5px;
+	color: @theme_fg_color;
+}
+
+.notification-icon box {
+	min-width: 68px;
+	min-height: 68px;
+	border-radius: 3px;
+}
+
+.notification {
+	min-width: 350px;
+	border-radius: 4px;
+	padding: 1em;
+	margin: .5em;
+	border: 1px solid @wm_borders_edge;
+	background-color: @theme_bg_color;
+}
+
+
+.notification.critical {
+	border: 1px solid @red_1;
+}
+
+.title {
+	color: @theme_fg_color;
+	font-size: 1em;
+}
+
+
+.body {
+	color: @theme_unfocused_fg_color;
+}
+
+.actions .action-button {
+	margin: 0 .4em;
+	margin-top: .8em;
+}
+
+.actions .action-button:first-child {
+	margin-left: 0;
+}
+
+.actions .action-button:last-child {
+	margin-right: 0;
+}

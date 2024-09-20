@@ -19,15 +19,18 @@ in {
       "$fileManager" = "thunar";
       "$dmenu" = "tofi-drun | xargs hyprctl dispatch exec --";
       "$menu" = "tofi-run | xargs hyprctl dispatch exec --";
-	"$emoji_menu" = "cat ~/nix-dotfiles/assets/emoji.txt | tofi | awk '{print $1}' | wl-copy";
+      "$emoji_menu" =
+        "cat ~/nix-dotfiles/assets/emoji.txt | tofi | awk '{print $1}' | wl-copy";
 
       monitor = [ " , preferred, auto, 1" ];
 
       bindl = [
         # Trigger when the lid closes (disable laptop monitor)
-        '' ,switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable" && ags -q && ags''
+        ''
+          ,switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable" && ags -q && ags''
         # Trigger when the lid opens (enable laptop monitor)
-        '' ,switch:off:Lid Switch,exec,hyprctl keyword monitor "eDP-1, 1920x1080, 0x0, 1" && hyprctl keyword monitor "DP-2, auto, -1920x0, 1.0" && ags -q && ags''
+        ''
+          ,switch:off:Lid Switch,exec,hyprctl keyword monitor "eDP-1, 1920x1080, 0x0, 1" && hyprctl keyword monitor "DP-2, auto, -1920x0, 1.0" && ags -q && ags''
       ];
 
       general = {
@@ -100,7 +103,7 @@ in {
         "$mod, f, exec, $fileManager"
         "$mod, b, togglefloating"
         "$mod SHIFT, F, fullscreen,"
-	  #tofi
+        #tofi
         "$mod, d, exec, $dmenu"
         "$mod, s, exec, $emoji_menu"
         "$mod SHIFT, d, exec, $menu"

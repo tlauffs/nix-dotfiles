@@ -22,9 +22,8 @@
       prompt-text = "  drun:";
 
       # Catppuccin Theme with hex color references
-      prompt-color =
-        lib.mkForce "${config.stylix.base16Scheme.base0D}"; # blue
-	  prompt-padding = 50;
+      prompt-color = lib.mkForce "${config.stylix.base16Scheme.base0D}"; # blue
+      prompt-padding = 50;
 
       background-color =
         lib.mkForce "${config.stylix.base16Scheme.base00}"; # Base background

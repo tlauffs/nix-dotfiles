@@ -20,6 +20,8 @@
     ./modules/packages.nix
     ./modules/service.nix
     ./modules/fish.nix
+    ./modules/graphics.nix
+    ./modules/steam.nix
   ];
 
   # Allow unfree packages

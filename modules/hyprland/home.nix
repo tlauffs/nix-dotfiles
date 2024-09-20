@@ -44,7 +44,7 @@ in {
       decoration = {
         rounding = "8";
         active_opacity = "1.0";
-        inactive_opacity = "0.85";
+        inactive_opacity = "0.9";
         drop_shadow = "false";
 
         blur = {
@@ -142,7 +142,7 @@ in {
       ];
       bindr = [
         # rotate panes
-        "$mod, Tab, layoutmsg, rollnext"
+        "$mod, Tab, layoutmsg, rollprev"
       ];
       bindm = [
         #move resize with mouse

@@ -1,13 +1,13 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, ... }:
 let
   startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
       # ${pkgs.swww}/bin/swww init &
       # ${pkgs.swww}/bin/swww img ${../../config/images/rainbow-cat.png} &
       nm-applet --indicator & 
-	sleep 0.5
       # waybar &
       # dunst &
       ags &
+      sleep 0.5
       kitty
     	'';
 in {
@@ -15,13 +15,19 @@ in {
     enable = true;
     settings = {
       "$mod" = "SUPER";
-
       "$terminal" = "kitty";
       "$fileManager" = "thunar";
-      "$dmenu" = "rofi -show drun";
-      "$menu" = "rofi -show run";
+      "$dmenu" = "tofi-drun | xargs hyprctl dispatch exec --";
+      "$menu" = "tofi-run | xargs hyprctl dispatch exec --";
 
-      monitor = " , preferred, auto, 1";
+      monitor = [ " , preferred, auto, 1" ];
+
+      bindl = [
+        # Trigger when the lid closes (disable laptop monitor)
+        '' ,switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable" && ags -q && ags''
+        # Trigger when the lid opens (enable laptop monitor)
+        '' ,switch:off:Lid Switch,exec,hyprctl keyword monitor "eDP-1, 1920x1080, 0x0, 1" && hyprctl keyword monitor "DP-2, auto, -1920x0, 1.0" && ags -q && ags''
+      ];
 
       general = {
         gaps_in = "2";
@@ -36,7 +42,7 @@ in {
       };
 
       decoration = {
-        rounding = "2";
+        rounding = "8";
         active_opacity = "1.0";
         inactive_opacity = "0.85";
         drop_shadow = "false";
@@ -100,8 +106,8 @@ in {
         "$mod, j, movefocus, d"
         "$mod, k, movefocus, u"
         "$mod, l, movefocus, r"
-        "$mod, Tab, cyclenext"
-        "$mod, Tab, bringactivetotop"
+        "$mod SHIFT, Tab, cyclenext"
+        "$mod SHIFT, Tab, bringactivetotop"
         #workspaces
         "$mod, 1, workspace, 1"
         "$mod, 2, workspace, 2"
@@ -122,22 +128,21 @@ in {
         "$mod SHIFT, 7, movetoworkspace, 7"
         "$mod SHIFT, 8, movetoworkspace, 8"
         "$mod SHIFT, 9, movetoworkspace, 9"
-	  # resize 
-	  "$mod SHIFT, l, resizeactive, 50 0"
+        # resize 
+        "$mod SHIFT, l, resizeactive, 50 0"
         "$mod SHIFT, h, resizeactive, -50 0"
         "$mod SHIFT, k, resizeactive, 0 -50"
         "$mod SHIFT, j, resizeactive, 0 50"
-	  # move active
-	  "$mod CTRL, l, movewindow, r"
-        "$mod CTRL, h, movewindow, l"
-        "$mod CTRL, j, movewindow, d"
-        "$mod CTRL, k, movewindow, u"
         # brightness and volume
         ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+"
         ",XF86AudioLowerVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"
         ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ",XF86MonBrightnessDown, exec, brightnessctl s 10%-"
         ",XF86MonBrightnessUp, exec, brightnessctl s +10%"
+      ];
+      bindr = [
+        # rotate panes
+        "$mod, Tab, layoutmsg, rollnext"
       ];
       bindm = [
         #move resize with mouse

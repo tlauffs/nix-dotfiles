@@ -89,6 +89,13 @@ label {
 	min-width: 16px;
 }
 
+.nix-logo {
+	padding-left: 16px;
+	padding-right: 6px;
+	font-size: 14px;
+	color: @blue_1;
+}
+
 .client-title {
 	color: @theme_selected_bg_color;
 }

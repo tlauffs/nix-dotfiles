@@ -4,7 +4,7 @@ import { Bar } from "./bar.js";
 App.config({
   style: "./style.css",
   windows: [
-    Bar(),
+    Bar(0),
     NotificationPopups(),
     // you can call it, for each monitor
     // Bar(0),

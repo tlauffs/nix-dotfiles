@@ -11,6 +11,9 @@ in {
     ./modules/kitty.nix
     ./modules/waybar/waybar.nix
     ./modules/alacritty.nix
+    ./modules/starship.nix
+    ./modules/fastfetch.nix
+    ./modules/tofi.nix
     # ./modules/dunst.nix
   ];
 
@@ -40,6 +43,11 @@ in {
     alacritty
     btop
     xfce.thunar
+    starship
+    fastfetch
+    vlc
+    obs-studio
+    steam
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of

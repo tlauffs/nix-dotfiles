@@ -19,6 +19,7 @@
     ./modules/fonts.nix
     ./modules/packages.nix
     ./modules/service.nix
+    ./modules/fish.nix
   ];
 
   # Allow unfree packages

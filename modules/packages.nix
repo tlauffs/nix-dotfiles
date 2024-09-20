@@ -6,7 +6,6 @@
     kitty
     tmux
     fzf
-    neofetch
     pavucontrol
     git
     gnumake
@@ -18,7 +17,9 @@
     wl-clipboard
     wget
     just
+    cargo
     nodejs
+    fish
     # tools
     flameshot
     brightnessctl
@@ -27,7 +28,7 @@
     # dunst
     libnotify
     swww
-    rofi-wayland
+    tofi
     networkmanagerapplet
     #apps
     firefox

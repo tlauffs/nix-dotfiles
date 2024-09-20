@@ -48,6 +48,12 @@ function Clock() {
   });
 }
 
+function NixLogo() {
+  return Widget.Label({
+    label: "",
+    class_name: "nix-logo",
+  });
+}
 // we don't need dunst or any other notification daemon
 // because the Notifications module is a notification daemon itself
 function Notification() {
@@ -171,7 +177,7 @@ function SysTray() {
 function Left() {
   return Widget.Box({
     spacing: 8,
-    children: [Workspaces()], // ClientTitle()
+    children: [NixLogo(), Workspaces()], // ClientTitle()
   });
 }
 

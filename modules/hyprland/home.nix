@@ -2,7 +2,7 @@
 let
   startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
       # ${pkgs.swww}/bin/swww init &
-      # ${pkgs.swww}/bin/swww img ${../../config/images/rainbow-cat.png} &
+      # ${pkgs.swww}/bin/swww img ${../../assets/images/rainbow-cat.png} &
       nm-applet --indicator & 
       # waybar &
       # dunst &
@@ -19,6 +19,7 @@ in {
       "$fileManager" = "thunar";
       "$dmenu" = "tofi-drun | xargs hyprctl dispatch exec --";
       "$menu" = "tofi-run | xargs hyprctl dispatch exec --";
+	"$emoji_menu" = "cat ~/nix-dotfiles/assets/emoji.txt | tofi | awk '{print $1}' | wl-copy";
 
       monitor = [ " , preferred, auto, 1" ];
 
@@ -44,7 +45,7 @@ in {
       decoration = {
         rounding = "8";
         active_opacity = "1.0";
-        inactive_opacity = "0.9";
+        inactive_opacity = "0.88";
         drop_shadow = "false";
 
         blur = {
@@ -98,9 +99,11 @@ in {
         "$mod SHIFT, e, exit"
         "$mod, f, exec, $fileManager"
         "$mod, b, togglefloating"
-        "$mod, d, exec, $dmenu"
-        "$mod SHIFT, d, exec, $menu"
         "$mod SHIFT, F, fullscreen,"
+	  #tofi
+        "$mod, d, exec, $dmenu"
+        "$mod, s, exec, $emoji_menu"
+        "$mod SHIFT, d, exec, $menu"
         # change focus
         "$mod, h, movefocus, l"
         "$mod, j, movefocus, d"

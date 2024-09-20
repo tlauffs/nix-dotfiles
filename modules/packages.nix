@@ -21,7 +21,7 @@
     nodejs
     fish
     # tools
-    flameshot
+    hyprshot
     brightnessctl
     # wm packages
     waybar

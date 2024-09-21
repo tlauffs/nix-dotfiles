@@ -23,11 +23,7 @@
     # tools
     hyprshot
     brightnessctl
-    # wm packages
-    waybar
-    # dunst
     libnotify
-    swww
     tofi
     networkmanagerapplet
     #apps

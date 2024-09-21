@@ -9,7 +9,6 @@ in {
     ./modules/theming.nix
     ./modules/hyprland/home.nix
     ./modules/kitty.nix
-    ./modules/waybar/waybar.nix
     ./modules/alacritty.nix
     ./modules/starship.nix
     ./modules/fastfetch.nix

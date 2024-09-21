@@ -1,11 +1,7 @@
 { pkgs, ... }:
 let
   startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
-      # ${pkgs.swww}/bin/swww init &
-      # ${pkgs.swww}/bin/swww img ${../../assets/images/rainbow-cat.png} &
       nm-applet --indicator & 
-      # waybar &
-      # dunst &
       ags &
       sleep 0.5
       kitty

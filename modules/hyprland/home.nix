@@ -19,9 +19,9 @@ in {
         "cat ~/nix-dotfiles/assets/emoji.txt | tofi | awk '{print $1}' | wl-copy";
 
       monitor = [
+        "* , preferred, auto, 1.0"
         "eDP-1, 1920x1080, 0x0, 1.0"
-	  "DP-2, preferred, -1920x0, 1.0"
-	  "* , preferred, auto, 1.0"
+        "DP-2, preferred, -1920x0, 1.0"
         "desc:HJW HDMI TO USB 0x01348D1D, preferred, auto, 1.0, mirror, DP-2"
       ];
 

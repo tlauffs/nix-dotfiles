@@ -3,6 +3,7 @@
     enable = true;
     interactiveShellInit = ''
       source ($HOME/.nix-profile/bin/starship init fish --print-full-init | psub)
+      zoxide init --cmd cd fish | source
     '';
   };
   # start fish whenb interaktive shell 

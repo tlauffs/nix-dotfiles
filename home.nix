@@ -44,6 +44,8 @@ in {
     bat
     btop
     fastfetch
+    yazi
+    direnv
     #scripts
    (writeShellScriptBin "ct" (builtins.readFile ./config/scripts/ct))
     # # It is sometimes useful to fine-tune packages, for example, by applying

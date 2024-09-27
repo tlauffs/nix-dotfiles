@@ -88,6 +88,7 @@ in {
 
       input = {
         kb_layout = "us";
+	  kb_variant = "intl";
         accel_profile = "flat";
         follow_mouse = "2";
         touchpad = {

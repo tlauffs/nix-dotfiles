@@ -8,8 +8,9 @@
   imports = [ # Include the results of the hardware scan.
     inputs.stylix.nixosModules.stylix
     ./hardware-configuration.nix
-    ./modules/sddm.nix
-    ./modules/theming.nix
+    # removing sddm due to login bug
+    # ./modules/sddm.nix
+    ./modules/theming/theming.nix
     ./modules/bootloader.nix
     ./modules/networking.nix
     ./modules/timzone.nix

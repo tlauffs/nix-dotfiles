@@ -2,12 +2,12 @@
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
-      set -gx EDITOR nvim
-      source ($HOME/.nix-profile/bin/starship init fish --print-full-init | psub)
-      zoxide init --cmd cd fish | source
-	direnv hook fish | source
-	# fix direnv with tmux session switch
-	alias tmux "direnv exec / tmux"
+            set -gx EDITOR nvim
+            source ($HOME/.nix-profile/bin/starship init fish --print-full-init | psub)
+            zoxide init --cmd cd fish | source
+      	direnv hook fish | source
+      	# fix direnv with tmux session switch
+      	alias tmux "direnv exec / tmux"
     '';
   };
   # start fish whenb interaktive shell 

@@ -6,7 +6,8 @@ in {
     inputs.stylix.homeManagerModules.stylix
     inputs.ags.homeManagerModules.default
     ./modules/ags/ags.nix
-    ./modules/theming.nix
+    # ./modules/theming.nix
+    ./modules/theming/theming.nix
     ./modules/hyprland/home.nix
     ./modules/kitty.nix
     ./modules/alacritty.nix
@@ -47,7 +48,9 @@ in {
     yazi
     direnv
     #scripts
-   (writeShellScriptBin "ct" (builtins.readFile ./config/scripts/ct))
+    (writeShellScriptBin "ct" (builtins.readFile ./config/scripts/ct))
+    (writeShellScriptBin "changetheme"
+      (builtins.readFile ./scripts/changetheme))
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -87,8 +90,7 @@ in {
   #
   #  /etc/profiles/per-user/tim/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = {
-  };
+  home.sessionVariables = { };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

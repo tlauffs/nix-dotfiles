@@ -54,7 +54,7 @@ in {
 
         blur = {
           enabled = "true";
-          size = "3";
+          size = "2";
           passes = "1";
           vibrancy = "0.1696";
         };
@@ -88,7 +88,7 @@ in {
 
       input = {
         kb_layout = "us";
-	  kb_variant = "intl";
+        kb_variant = "intl";
         accel_profile = "flat";
         follow_mouse = "2";
         touchpad = {

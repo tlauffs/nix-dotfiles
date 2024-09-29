@@ -3,6 +3,7 @@
     enableDefaultPackages = true;
     packages = with pkgs; [
       jetbrains-mono
+      victor-mono
       noto-fonts
       noto-fonts-emoji
       twemoji-color-font
@@ -10,14 +11,8 @@
       dejavu_fonts
       powerline-fonts
       powerline-symbols
-      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      cascadia-code
+      (nerdfonts.override { fonts = [ "JetBrainsMono" "CascadiaCode" ]; })
     ];
-    fontconfig = {
-      defaultFonts = {
-        serif = [ "DejaVu Serif" ];
-        sansSerif = [ "DejaVu Sans" ];
-        monospace = [ "JetBrainsMono" ];
-      };
-    };
   };
 }

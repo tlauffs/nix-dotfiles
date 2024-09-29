@@ -7,15 +7,16 @@
 
 update:
   git submodule update --init --recursive
-  nixos-rebuild switch --flake . --use-remote-sudo
-  home-manager switch --flake "$HOME/nix-dotfiles?submodules=1"
+  nixos-rebuild switch --impure --flake . --use-remote-sudo
+  home-manager switch --impure --flake .?submodules=1
+
 
 build:
-  nixos-rebuild switch --flake . --use-remote-sudo
-  home-manager switch --flake "$HOME/nix-dotfiles?submodules=1"
+  nixos-rebuild switch --impure --flake . --use-remote-sudo
+  home-manager switch --impure --flake .?submodules=1
 
 debug:
-  nixos-rebuild switch --flake . --use-remote-sudo --show-trace --verbose
+  nixos-rebuild switch --impure --flake . --use-remote-sudo --show-trace --verbose
 
 up:
   nix flake update

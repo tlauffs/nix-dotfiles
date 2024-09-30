@@ -62,18 +62,12 @@ in {
 
       animations = {
         enabled = "true";
-        bezier = [
-          "overshot, 0.05, 0.9, 0.1, 1.05"
-          "smoothOut, 0.36, 0, 0.66, -0.56"
-          "smoothIn, 0.25, 1, 0.5, 1"
-        ];
+        bezier = [ "myBezier, 0.05, 0.9, 0.1, 1.05" ];
         animation = [
-          "windows, 1, 3, overshot, slide"
-          "windowsOut, 1, 3, smoothOut, slide"
-          "windowsMove, 1, 3, default"
-          "border, 1, 3, default"
-          "fade, 1, 3, smoothIn"
-          "fadeDim, 1, 3, smoothIn"
+          "windows, 1, 3, myBezier"
+          "windowsOut, 1, 3, default, popin 80%"
+          "border, 1, 4, default"
+          "fade, 1, 4, default"
           "workspaces, 1, 3, default"
         ];
       };
@@ -141,6 +135,8 @@ in {
         "$mod SHIFT, h, resizeactive, -50 0"
         "$mod SHIFT, k, resizeactive, 0 -50"
         "$mod SHIFT, j, resizeactive, 0 50"
+	  # hyprlock
+        "$mod SHIFT, a, exec, pidof hyprlock || hyprlock "
         # brightness and volume
         ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+"
         ",XF86AudioLowerVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"

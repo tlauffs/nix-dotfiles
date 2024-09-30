@@ -42,9 +42,16 @@ function ClientTitle() {
 }
 
 function Clock() {
+  const now = new Date();
+  const month = now.toLocaleString("default", { month: "short" });
+  const day = now.getDate();
+  const formattedTime = now.toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  });
   return Widget.Label({
-    class_name: "clock",
-    label: date.bind(),
+    label: `  ${month} ${day}   ${formattedTime}`, // Combine the formatted date and clock icon
   });
 }
 
@@ -177,14 +184,14 @@ function SysTray() {
 function Left() {
   return Widget.Box({
     spacing: 8,
-    children: [NixLogo(), Workspaces()], // ClientTitle()
+    children: [NixLogo(), Workspaces(), ClientTitle()],
   });
 }
 
 function Center() {
   return Widget.Box({
     spacing: 8,
-    children: [Media()],
+    children: [Clock()], // media
   });
 }
 
@@ -192,7 +199,7 @@ function Right() {
   return Widget.Box({
     hpack: "end",
     spacing: 8,
-    children: [Notification(), Battery(), Volume(), Clock(), SysTray()],
+    children: [Notification(), SysTray(), Volume(), Battery()],
   });
 }
 

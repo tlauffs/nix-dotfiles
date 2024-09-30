@@ -6,9 +6,9 @@ in {
     inputs.stylix.homeManagerModules.stylix
     inputs.ags.homeManagerModules.default
     ./modules/ags/ags.nix
-    # ./modules/theming.nix
     ./modules/theming/theming.nix
     ./modules/hyprland/home.nix
+    ./modules/hyprland/hyprlock.nix
     ./modules/kitty.nix
     ./modules/alacritty.nix
     ./modules/starship.nix
@@ -47,10 +47,10 @@ in {
     fastfetch
     yazi
     direnv
+    hyprlock
     #scripts
     (writeShellScriptBin "ct" (builtins.readFile ./config/scripts/ct))
-    (writeShellScriptBin "changetheme"
-      (builtins.readFile ./scripts/changetheme))
+    (writeShellScriptBin "t" (builtins.readFile ./scripts/changetheme))
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of

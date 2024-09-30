@@ -7,7 +7,8 @@
   # stylix.homeManagerIntegration.followSystem = false;
 
   # the stylix.image option currently needs to be set but is not bieng used since all colors are from base16Scheme
-  stylix.image = ../../assets/images/gruvbox.png;
+   stylix.image = ../../assets/images/gruvbox.png;
+
   stylix.base16Scheme = {
     base00 = "202020"; # bg
     base01 = "2a2827"; # bg2
@@ -35,13 +36,14 @@
   # fonts
   stylix.fonts = {
     monospace = {
-      package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
-      name = "JetBrainsMono Nerd Font";
+      package = pkgs.nerdfonts.override { fonts = [ "CascadiaCode" ]; };
+      name = "Cascadia Mono NF";
     };
     sansSerif = {
-      package = pkgs.dejavu_fonts;
-      name = "DejaVu Sans";
+      package = pkgs.nerdfonts.override { fonts = [ "CascadiaCode" ]; };
+      name = "Cascadia Code NF";
     };
+
     serif = {
       package = pkgs.dejavu_fonts;
       name = "DejaVu Serif";

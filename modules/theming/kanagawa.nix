@@ -8,7 +8,8 @@
 
   # the stylix.image option currently needs to be set but is not bieng used since all colors are from base16Scheme
   stylix.image = ../../assets/images/kanagawa.jpg;
-  stylix.base16Scheme = {
+
+ stylix.base16Scheme = {
     base00 = "1F1F28";
     base01 = "2A2A37";
     base02 = "223249";
@@ -55,6 +56,6 @@
   };
 
   # terminal theming 
-  stylix.opacity = { terminal = 0.78; };
+  stylix.opacity = { terminal = 0.82; };
 
 }

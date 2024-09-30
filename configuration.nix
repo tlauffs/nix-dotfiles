@@ -5,11 +5,16 @@
 { inputs, config, pkgs, ... }:
 
 {
+  _module.args.pkgsUnstable = import inputs.nixpkgs-unstable {
+    inherit (pkgs.stdenv.hostPlatform) system;
+    inherit (config.nixpkgs) config;
+  };
+
   imports = [ # Include the results of the hardware scan.
     inputs.stylix.nixosModules.stylix
     ./hardware-configuration.nix
-    # removing sddm due to login bug
-    # ./modules/sddm.nix
+    # doesnt work yet on stable branch
+    # ./modules/displaymanager.nix
     ./modules/theming/theming.nix
     ./modules/bootloader.nix
     ./modules/networking.nix

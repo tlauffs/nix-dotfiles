@@ -135,7 +135,7 @@ in {
         "$mod SHIFT, h, resizeactive, -50 0"
         "$mod SHIFT, k, resizeactive, 0 -50"
         "$mod SHIFT, j, resizeactive, 0 50"
-	  # hyprlock
+        # hyprlock
         "$mod SHIFT, a, exec, pidof hyprlock || hyprlock "
         # brightness and volume
         ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+"

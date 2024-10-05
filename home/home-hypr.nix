@@ -1,19 +1,19 @@
-{ config, pkgs, inputs, ... }:
-let configPath = builtins.path { path = ./config; };
-in {
+{ config, pkgs, inputs, ... }: {
   imports = [
     # stylix must be added to config and home manager twice, due to standalone usage of home manager
     inputs.stylix.homeManagerModules.stylix
     inputs.ags.homeManagerModules.default
+    ../modules/theming/theming.nix
     ./modules/ags/ags.nix
-    ./modules/theming/theming.nix
-    ./modules/hyprland/home.nix
+    ./modules/hyprland/hyprland.nix
     ./modules/hyprland/hyprlock.nix
     ./modules/kitty.nix
     ./modules/alacritty.nix
     ./modules/starship.nix
     ./modules/fastfetch.nix
     ./modules/tofi.nix
+    ./modules/fish.nix
+    ./modules/fonts.nix
   ];
 
   home.username = "tim";
@@ -28,7 +28,42 @@ in {
   home.stateVersion = "24.05"; # Please read the comment before changing.
   nixpkgs.config = { allowUnfree = true; };
 
+  # TODO: seperate into wsl and linux/hyprland packages
   home.packages = with pkgs; [
+    # programs
+    neovim
+    kitty
+    fish
+    tmux
+    git
+    firefox
+    google-chrome
+    pavucontrol
+    #tools
+    just
+    cargo
+    fzf
+    unzip
+    brightnessctl
+    ripgrep
+    wl-clipboard
+    xclip
+    nodejs
+    hyprshot
+    tofi
+    gcc
+    #fonts
+    jetbrains-mono
+    victor-mono
+    noto-fonts
+    noto-fonts-emoji
+    twemoji-color-font
+    font-awesome
+    dejavu_fonts
+    powerline-fonts
+    powerline-symbols
+    cascadia-code
+    (nerdfonts.override { fonts = [ "JetBrainsMono" "CascadiaCode" ]; })
     vscode
     discord
     obsidian
@@ -49,7 +84,7 @@ in {
     direnv
     hyprlock
     #scripts
-    (writeShellScriptBin "ct" (builtins.readFile ./config/scripts/ct))
+    (writeShellScriptBin "ct" (builtins.readFile ./scripts/ct))
     (writeShellScriptBin "t" (builtins.readFile ./scripts/changetheme))
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -66,12 +101,11 @@ in {
 
   home.file = {
     # Symlink tmux configuration
-    ".config/tmux/tmux.conf".source = "${configPath}/tmux/tmux.conf";
+    ".config/tmux/tmux.conf".source = ./config/tmux/tmux.conf;
     # Symlink Neovim configuration directory
-    ".config/nvim".source = "${configPath}/nvim";
+    ".config/nvim".source = ./config/nvim;
     # symlink ags
     ".config/ags".source = ./modules/ags/config;
-
   };
 
   # Home Manager can also manage your environment variables through

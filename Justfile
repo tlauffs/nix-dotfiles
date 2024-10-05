@@ -1,23 +1,41 @@
 # just is a command runner, Justfile is very similar to Makefile, but simpler.
 ############################################################################
 #
-#  Nix commands related to the local machine
-#
+#  NixOS and Home Manager specific commands
+#  currently --impure is need as current_theme.txt is read as absolute path
 ############################################################################
 
-update:
-  git submodule update --init --recursive
+# NixOS-specific update (includes both NixOS and Home Manager updates for Hyprland)
+nixos-update:
   nixos-rebuild switch --impure --flake . --use-remote-sudo
-  home-manager switch --impure --flake .?submodules=1
+  home-manager switch --impure --flake .#tim-hypr
 
+# WSL-specific Home Manager update
+wsl-update:
+  home-manager switch --impure --flake .#tim-wsl
 
-build:
+# Hyprland-specific Home Manager update (non-NixOS systems)
+hypr-update:
+  home-manager switch --impure --flake .#tim-hypr
+
+# NixOS-specific build
+nixos-build:
   nixos-rebuild switch --impure --flake . --use-remote-sudo
-  home-manager switch --impure --flake .?submodules=1
+  home-manager switch --impure --flake .#tim-hypr
 
-debug:
+# WSL-specific build
+wsl-build:
+  home-manager switch --impure --flake .#tim-wsl
+
+# Hyprland-specific build
+hypr-build:
+  home-manager switch --impure --flake .#tim-hypr
+
+# Debug for NixOS
+nixos-debug:
   nixos-rebuild switch --impure --flake . --use-remote-sudo --show-trace --verbose
 
+# Universal commands
 up:
   nix flake update
 
@@ -26,17 +44,18 @@ up:
 upp:
   nix flake update $(i)
 
+# Show profile history for NixOS
 history:
   nix profile history --profile /nix/var/nix/profiles/system
 
+# Open a Nix repl
 repl:
   nix repl -f flake:nixpkgs
 
+# Clean old profile generations (older than 7 days)
 clean:
-  # remove all generations older than 7 days
-  sudo nix profile wipe-history --profile /nix/var/nix/profiles/system  --older-than 7d
+  sudo nix profile wipe-history --profile /nix/var/nix/profiles/system --older-than 7d
 
+# Garbage collect all unused Nix store entries
 gc:
-  # garbage collect all unused nix store entries
   sudo nix-collect-garbage --delete-old
-

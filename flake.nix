@@ -21,10 +21,21 @@
         specialArgs = { inherit inputs; };
         modules = [ ./configuration.nix ];
       };
-      homeConfigurations.tim = home-manager.lib.homeManagerConfiguration {
+
+      # Home Manager configuration for hyprland
+      homeConfigurations.tim-hypr = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
         extraSpecialArgs = { inherit inputs; };
-        modules = [ ./home.nix ];
+        modules = [ ./home/home-hypr.nix ]; # Linux-specific Home Manager config
       };
+
+      # Home Manager configuration for WSL
+      homeConfigurations.tim-wsl = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.${system};
+        extraSpecialArgs = { inherit inputs; };
+        modules = [ ./home/home-wsl.nix ]; # WSL-specific Home Manager config
+      };
+
     };
 }
+

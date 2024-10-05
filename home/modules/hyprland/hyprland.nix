@@ -16,7 +16,7 @@ in {
       "$dmenu" = "tofi-drun | xargs hyprctl dispatch exec --";
       "$menu" = "tofi-run | xargs hyprctl dispatch exec --";
       "$emoji_menu" =
-        "cat ~/nix-dotfiles/assets/emoji.txt | tofi | awk '{print $1}' | wl-copy";
+        "cat ~/nix-dotfiles/home/assets/emoji.txt | tofi | awk '{print $1}' | wl-copy";
 
       monitor = [
         "* , preferred, auto, 1.0"

@@ -20,12 +20,12 @@
     ./modules/networking.nix
     ./modules/timzone.nix
     ./modules/user.nix
-    ./modules/hyprland/global.nix
+    ./modules/hyprland.nix
     ./modules/sound.nix
-    ./modules/fonts.nix
+    # ./modules/fonts.nix
     ./modules/packages.nix
     ./modules/service.nix
-    ./modules/fish.nix
+    # ./modules/fish.nix
     ./modules/graphics.nix
     ./modules/steam.nix
   ];

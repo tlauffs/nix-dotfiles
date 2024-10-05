@@ -1,0 +1,70 @@
+#!/bin/bash
+
+cd "$HOME/nix-dotfiles" || exit
+
+# Set the COLOR_SCHEME based on the first argument, otherwise default to "catppuccin"
+if [[ -n "$1" ]]; then
+    COLOR_SCHEME="$1"
+else
+    COLOR_SCHEME="catppuccin"
+fi
+
+# Write the color scheme to a text file
+echo "$COLOR_SCHEME" > "$HOME/nix-dotfiles/home/current_theme.txt"
+echo "Using color scheme: $COLOR_SCHEME"
+
+# Determine the Home Manager configuration based on the second argument
+if [[ "$2" == "wsl" ]]; then
+    HM_CONFIG="wsl"
+elif [[ "$2" == "hypr" ]]; then
+    HM_CONFIG="hypr"
+else
+    echo "Invalid Home Manager configuration specified. Use 'wsl' or 'hypr'."
+    exit 1
+fi
+
+# NixOS rebuild
+nixos-rebuild switch --impure --flake . --use-remote-sudo
+
+# Home Manager switch based on the specified configuration
+home-manager switch --impure --flake .#tim-"$HM_CONFIG"
+
+# Check if hyprctl is installed before running Hyprland-specific commands
+if command -v hyprctl &> /dev/null; then
+    echo "Hyprland detected, applying wallpaper and restarting Hyprland..."
+    
+    # Restart Hyprland
+    hyprctl dispatch restart
+
+    WALLPAPER_DIR="$HOME/nix-dotfiles/home/assets/images"
+    # Find the wallpaper file with the corresponding theme name
+    WALLPAPER_PATH=$(find "$WALLPAPER_DIR" -type f -name "$COLOR_SCHEME.*" | head -n 1)
+
+    # Preload and set the wallpaper for each monitor
+    if [[ -n "$WALLPAPER_PATH" ]]; then
+        hyprctl hyprpaper preload "$WALLPAPER_PATH"
+        for monitor in $(hyprctl monitors | grep 'Monitor' | awk '{ print $2 }'); do
+            hyprctl hyprpaper wallpaper "$monitor,$WALLPAPER_PATH"
+        done
+    else
+        echo "No wallpaper found for theme: $COLOR_SCHEME"
+    fi
+else
+    echo "Hyprland not detected, skipping wallpaper and Hyprland commands."
+fi
+
+# Check if ags is installed before restarting AGS
+if command -v ags &> /dev/null; then
+    ags -q
+    ags &
+else
+    echo "AGS not found, skipping AGS restart."
+fi
+
+# Check if kitty is installed before restarting Kitty
+if command -v kitty &> /dev/null; then
+    pkill kitty
+    kitty &
+else
+    echo "Kitty not found, skipping Kitty restart."
+fi

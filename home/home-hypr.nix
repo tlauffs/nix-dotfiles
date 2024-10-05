@@ -47,7 +47,6 @@
     brightnessctl
     ripgrep
     wl-clipboard
-    xclip
     nodejs
     hyprshot
     tofi

@@ -5,7 +5,7 @@
   };
   home.packages = with pkgs; [
     jetbrains-mono
-    FiraSans
+    fira-sans
     victor-mono
     noto-fonts
     noto-fonts-emoji

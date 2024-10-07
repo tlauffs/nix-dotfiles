@@ -15,6 +15,8 @@
     ./modules/fish.nix
     ./modules/bash.nix
     ./modules/fonts.nix
+    ./modules/git.nix
+    ./modules/bat.nix
   ];
 
   home.username = "tim";

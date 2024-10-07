@@ -7,6 +7,8 @@
     ./modules/fastfetch.nix
     ./modules/fish.nix
     ./modules/bash.nix
+    ./modules/git.nix
+    ./modules/bat.nix
   ];
 
   home.username = "tim";

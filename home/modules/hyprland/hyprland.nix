@@ -13,7 +13,9 @@ in {
       "$mod" = "SUPER";
       "$terminal" = "kitty";
       "$fileManager" = "thunar";
-      "$dmenu" = "tofi-drun | xargs hyprctl dispatch exec --";
+      # TODO: fix drun
+      # "$dmenu" = "tofi-drun | xargs hyprctl dispatch exec --";
+      "$dmenu" = "tofi-run | xargs hyprctl dispatch exec --";
       "$menu" = "tofi-run | xargs hyprctl dispatch exec --";
       "$emoji_menu" =
         "cat ~/nix-dotfiles/home/assets/emoji.txt | tofi | awk '{print $1}' | wl-copy";

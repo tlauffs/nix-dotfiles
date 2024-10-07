@@ -41,9 +41,8 @@
     };
     sansSerif = {
       package = pkgs.nerdfonts.override { fonts = [ "CascadiaCode" ]; };
-      name = "Cascadia Code NF";
+      name = "CaskaydiaCove Nerd Font";
     };
-
     serif = {
       package = pkgs.dejavu_fonts;
       name = "DejaVu Serif";

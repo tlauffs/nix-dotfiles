@@ -40,8 +40,8 @@
       name = "JetBrainsMono Nerd Font";
     };
     sansSerif = {
-      package = pkgs.dejavu_fonts;
-      name = "DejaVu Sans";
+      package = pkgs.nerdfonts.override { fonts = [ "FiraSans" ]; };  
+      name = "Fira Sans Nerd Font";
     };
     serif = {
       package = pkgs.dejavu_fonts;

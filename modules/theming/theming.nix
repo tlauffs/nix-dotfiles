@@ -6,7 +6,7 @@ let
   filePath = /home/tim/nix-dotfiles/home/current_theme.txt;
   selectedScheme = builtins.readFile filePath;
 
-  isGruvbox = builtins.match (".*gruvbox.*")  selectedScheme != null;
+  isGruvbox = builtins.match (".*gruvbox.*") selectedScheme != null;
   isKanagawa = builtins.match (".*kanagawa.*") selectedScheme != null;
 
   theme =

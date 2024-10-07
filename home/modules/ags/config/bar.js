@@ -156,6 +156,7 @@ function Battery() {
         widthRequest: 120,
         class_name: "battery_bar",
         vpack: "center",
+        css: "margin-right: 16px",
         value,
       }),
     ],

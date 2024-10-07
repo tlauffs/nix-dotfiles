@@ -6,6 +6,7 @@
     ./modules/starship.nix
     ./modules/fastfetch.nix
     ./modules/fish.nix
+    ./modules/bash.nix
   ];
 
   home.username = "tim";
@@ -30,6 +31,7 @@
     just
     cargo
     fzf
+    fd
     unzip
     ripgrep
     xclip

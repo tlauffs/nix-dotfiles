@@ -13,6 +13,7 @@
     ./modules/fastfetch.nix
     ./modules/tofi.nix
     ./modules/fish.nix
+    ./modules/bash.nix
     ./modules/fonts.nix
   ];
 
@@ -43,6 +44,7 @@
     just
     cargo
     fzf
+    fd
     unzip
     brightnessctl
     ripgrep
@@ -51,23 +53,11 @@
     hyprshot
     tofi
     gcc
-    #fonts
-    jetbrains-mono
-    victor-mono
-    noto-fonts
-    noto-fonts-emoji
-    twemoji-color-font
-    font-awesome
-    dejavu_fonts
-    powerline-fonts
-    powerline-symbols
-    cascadia-code
-    (nerdfonts.override { fonts = [ "JetBrainsMono" "CascadiaCode" ]; })
+    xfce.thunar
     vscode
     discord
     obsidian
     alacritty
-    xfce.thunar
     starship
     vlc
     obs-studio
@@ -106,6 +96,11 @@
     # symlink ags
     ".config/ags".source = ./modules/ags/config;
   };
+
+  # home.sessionPath = [
+  #   "$HOME/.nix-profile/bin" # binaries
+  #   "$HOME/.nix-profile/share/applications" # .desktop files
+  # ];
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a

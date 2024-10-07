@@ -56,6 +56,6 @@
   };
 
   # terminal theming 
-  stylix.opacity = { terminal = 0.82; };
+  stylix.opacity = { terminal = 0.85; };
 
 }

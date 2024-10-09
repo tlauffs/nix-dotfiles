@@ -2,11 +2,23 @@
 
 cd "$HOME/nix-dotfiles" || exit
 
-# Set the COLOR_SCHEME based on the first argument, otherwise default to "catppuccin"
+# Set the COLOR_SCHEME based on the first argument
 if [[ -n "$1" ]]; then
     COLOR_SCHEME="$1"
 else
     COLOR_SCHEME="catppuccin"
+fi
+if [[ "$1" == "catppuccin" ]]; then
+    COLOR_SCHEME="catppuccin"
+elif [[ "$1" == "kanagawa" ]]; then
+    COLOR_SCHEME="kanagawa"
+elif [[ "$1" == "gruvbox" ]]; then
+    COLOR_SCHEME="gruvbox"
+elif [[ "$1" == "rose-pine" ]]; then
+    COLOR_SCHEME="rose-pine"
+else
+    echo "Invalid Colorscheme configuration specified. Options: catppuccin, gruvbox, kanagawa, rose-pine"
+    exit 1
 fi
 
 # Write the color scheme to a text file

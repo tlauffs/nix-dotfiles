@@ -36,6 +36,19 @@ local plugins = {
 			})
 		end,
 	},
+	{
+		"rose-pine/neovim", 
+		name = "rose-pine",
+		config = function()
+			require("rose-pine").setup({
+				variant = "main", -- auto, main, moon, or dawn
+    				dark_variant = "main", -- main, moon, or dawn
+    				styles = {
+    				    transparency = false,
+    				},
+			})
+		end,
+	},
 }
 
 -- Apply the colorscheme based on the text file
@@ -46,6 +59,8 @@ vim.defer_fn(function()
 		vim.cmd.colorscheme("gruvbox-baby")
 	elseif color_scheme == "kanagawa" then
 		vim.cmd.colorscheme("kanagawa")
+	elseif color_scheme == "rose-pine" then
+		vim.cmd.colorscheme("rose-pine")
 	else
 		print("Colorscheme '" .. color_scheme .. "' not found, using default 'catppuccin'.")
 		vim.cmd.colorscheme("catppuccin") -- Fallback to the default scheme

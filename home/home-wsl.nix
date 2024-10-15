@@ -6,7 +6,7 @@
     ./modules/starship.nix
     ./modules/fastfetch.nix
     ./modules/fish.nix
-    ./modules/bash.nix
+    #./modules/bash.nix
     ./modules/git.nix
     ./modules/bat.nix
   ];
@@ -47,7 +47,9 @@
     btop
     fastfetch
     yazi
-    direnv
+    direnv 
+    php
+    gnumake
     #scripts
     (writeShellScriptBin "ct" (builtins.readFile ./scripts/ct))
     (writeShellScriptBin "t" (builtins.readFile ./scripts/changetheme))

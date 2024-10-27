@@ -11,6 +11,12 @@ let
   isKanagawa = builtins.match (".*kanagawa.*") selectedScheme != null;
   isRosepine = builtins.match (".*rose-pine.*") selectedScheme != null;
 
-  theme =
-    if isGruvbox then gruvbox else if isKanagawa then kanagawa else if isRosepine then rosepine else catppuccin;
+  theme = if isGruvbox then
+    gruvbox
+  else if isKanagawa then
+    kanagawa
+  else if isRosepine then
+    rosepine
+  else
+    catppuccin;
 in theme

@@ -9,6 +9,8 @@
     ./modules/bash.nix
     ./modules/git.nix
     ./modules/bat.nix
+    ./packages/sharedPackages.nix
+    ./packages/wslPackages.nix
   ];
 
   home.username = "tim";
@@ -23,42 +25,11 @@
   home.stateVersion = "24.05"; # Please read the comment before changing.
   nixpkgs.config = { allowUnfree = true; };
 
-  # TODO: seperate into wsl and linux/hyprland packages
-  home.packages = with pkgs; [
-    neovim
-    fish
-    tmux
-    git
-    #tools
-    just
-    cargo
-    fzf
-    fd
-    unzip
-    ripgrep
-    xclip
-    nodejs
-    gcc
-    starship
-    zoxide
-    dust
-    tldr
-    bat
-    btop
-    fastfetch
-    yazi
-    direnv
-    #scripts
-    (writeShellScriptBin "ct" (builtins.readFile ./scripts/ct))
-    (writeShellScriptBin "t" (builtins.readFile ./scripts/changetheme))
-  ];
-
   home.file = {
     # Symlink tmux configuration
     ".config/tmux/tmux.conf".source = ./config/tmux/tmux.conf;
-    # Symlink Neovim configuration directory
-    ".config/nvim".source = ./config/nvim;
   };
+  xdg.configFile.nvim.source = ./config/nvim;
 
   home.sessionVariables = { };
 

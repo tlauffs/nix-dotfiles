@@ -3,6 +3,7 @@ return { -- Autoformat
 	lazy = false,
 	keys = {
 		{
+
 			"<leader>f",
 			function()
 				require("conform").format({ async = true, lsp_fallback = true })
@@ -25,12 +26,20 @@ return { -- Autoformat
 		end,
 		formatters_by_ft = {
 			lua = { "stylua" },
-			-- Conform can also run multiple formatters sequentially
-			-- python = { "isort", "black" },
-			--
-			-- You can use a sub-list to tell conform to run *until* a formatter
-			-- is found.
-			javascript = { { "prettierd", "prettier" } },
+			javascript = { "prettier" },
+			python = { "black" },
+			-- php = { "php-cs-fixer" },
 		},
+		-- formatters = {
+		-- 	["php-cs-fixer"] = {
+		-- 		command = "php-cs-fixer",
+		-- 		args = {
+		-- 			"fix",
+		-- 			"--rules=@PSR12", -- Formatting preset. Other presets are available, see the php-cs-fixer docs.
+		-- 			"$FILENAME",
+		-- 		},
+		-- 		stdin = false,
+		-- 	},
+		-- },
 	},
 }

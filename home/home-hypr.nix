@@ -17,6 +17,8 @@
     ./modules/fonts.nix
     ./modules/git.nix
     ./modules/bat.nix
+    ./packages/sharedPackages.nix
+    ./packages/hyprPackages.nix
   ];
 
   home.username = "tim";
@@ -31,73 +33,13 @@
   home.stateVersion = "24.05"; # Please read the comment before changing.
   nixpkgs.config = { allowUnfree = true; };
 
-  # TODO: seperate into wsl and linux/hyprland packages
-  home.packages = with pkgs; [
-    # programs
-    neovim
-    kitty
-    fish
-    tmux
-    git
-    firefox
-    google-chrome
-    pavucontrol
-    #tools
-    just
-    cargo
-    fzf
-    fd
-    unzip
-    brightnessctl
-    ripgrep
-    wl-clipboard
-    nodejs
-    hyprshot
-    tofi
-    gcc
-    xfce.thunar
-    vscode
-    discord
-    obsidian
-    alacritty
-    starship
-    vlc
-    obs-studio
-    wdisplays
-    #tools
-    zoxide
-    dust
-    tldr
-    bat
-    btop
-    fastfetch
-    yazi
-    direnv
-    hyprlock
-    #scripts
-    (writeShellScriptBin "ct" (builtins.readFile ./scripts/ct))
-    (writeShellScriptBin "t" (builtins.readFile ./scripts/changetheme))
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
-  ];
-
   home.file = {
     # Symlink tmux configuration
     ".config/tmux/tmux.conf".source = ./config/tmux/tmux.conf;
-    # Symlink Neovim configuration directory
-    ".config/nvim".source = ./config/nvim;
     # symlink ags
     ".config/ags".source = ./modules/ags/config;
   };
+  xdg.configFile.nvim.source = ./config/nvim;
 
   # home.sessionPath = [
   #   "$HOME/.nix-profile/bin" # binaries

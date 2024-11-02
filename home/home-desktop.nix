@@ -42,6 +42,7 @@
     firefox
     google-chrome
     pavucontrol
+    networkmanagerapplet
     #tools
     just
     cargo

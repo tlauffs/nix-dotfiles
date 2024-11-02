@@ -6,11 +6,11 @@
 - **Enable flakes** in `~/.config/nix/nix.conf`:
     experimental-features = nix-command flakes
 - **Enable nixgl**: https://github.com/nix-community/nixGL
-    nix-channel --add https://github.com/nix-community/nixGL/archive/main.tar.gz nixgl && nix-channel --update
-    nix-env -iA nixgl.auto.nixGLDefault
--**Add Hyprland to Login Manager**:
+    - nix-channel --add https://github.com/nix-community/nixGL/archive/main.tar.gz nixgl && nix-channel --update
+    - nix-env -iA nixgl.auto.nixGLDefault
+- **Add Hyprland to Login Manager**:
    - if using LightDM:
-        change /usr/share/wayland-sessions/hyprland.desktop to:
+        - change /usr/share/wayland-sessions/hyprland.desktop to:
         ```
         [Desktop Entry]
         Name=Hyprland

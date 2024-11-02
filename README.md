@@ -38,3 +38,5 @@
 ### General Commands
 - **Update flake**: Run `just up` to update all flake inputs.
 - **Garbage collect old generations**: Run `just gc` to clean up old Nix store entries.
+
+![Prefiew Image](./preview.png)

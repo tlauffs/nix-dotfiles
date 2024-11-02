@@ -26,17 +26,17 @@ echo "$COLOR_SCHEME" > "$HOME/nix-dotfiles/home/current_theme.txt"
 echo "Using color scheme: $COLOR_SCHEME"
 
 # Determine the Home Manager configuration based on the second argument
-if [[ "$2" == "wsl" ]]; then
-    HM_CONFIG="wsl"
-elif [[ "$2" == "hypr" ]]; then
-    HM_CONFIG="hypr"
+if [[ "$2" == "terminal" ]]; then
+    HM_CONFIG="terminal"
+elif [[ "$2" == "desktop" ]]; then
+    HM_CONFIG="desktop"
 else
-    echo "Invalid Home Manager configuration specified. Use 'wsl' or 'hypr'."
+    echo "Invalid Home Manager configuration specified. Use 'terminal' or 'desktop'."
     exit 1
 fi
 
 # NixOS rebuild
-nixos-rebuild switch --impure --flake . --use-remote-sudo
+# nixos-rebuild switch --impure --flake . --use-remote-sudo
 
 # Home Manager switch based on the specified configuration
 home-manager switch --impure --flake .#tim-"$HM_CONFIG"
@@ -55,8 +55,10 @@ if command -v hyprctl &> /dev/null; then
     # Preload and set the wallpaper for each monitor
     if [[ -n "$WALLPAPER_PATH" ]]; then
         hyprctl hyprpaper preload "$WALLPAPER_PATH"
+        # hyprpaper preload "$WALLPAPER_PATH"
         for monitor in $(hyprctl monitors | grep 'Monitor' | awk '{ print $2 }'); do
             hyprctl hyprpaper wallpaper "$monitor,$WALLPAPER_PATH"
+            # hyprpaper wallpaper "$monitor,$WALLPAPER_PATH"
         done
     else
         echo "No wallpaper found for theme: $COLOR_SCHEME"
@@ -74,9 +76,9 @@ else
 fi
 
 # Check if kitty is installed before restarting Kitty
-if command -v kitty &> /dev/null; then
-    pkill kitty
-    kitty &
-else
-    echo "Kitty not found, skipping Kitty restart."
-fi
+# if command -v kitty &> /dev/null; then
+#     pkill kitty
+#     kitty &
+# else
+#     echo "Kitty not found, skipping Kitty restart."
+# fi

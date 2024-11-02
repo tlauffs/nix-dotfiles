@@ -5,10 +5,10 @@
 - **Install standalone Home Manager**: https://nix-community.github.io/home-manager/index.xhtml#sec-install-standalone
 - **Enable flakes** in `~/.config/nix/nix.conf`:
     experimental-features = nix-command flakes
-- **Enable nixgl**: https://github.com/nix-community/nixGL
+- **Enable nixgl  (only need for desktop variant)**: https://github.com/nix-community/nixGL
     - nix-channel --add https://github.com/nix-community/nixGL/archive/main.tar.gz nixgl && nix-channel --update
     - nix-env -iA nixgl.auto.nixGLDefault
-- **Add Hyprland to Login Manager**:
+- **Add Hyprland to Login Manager (only need for desktop variant)**:
    - if using LightDM:
         - change /usr/share/wayland-sessions/hyprland.desktop to:
         ```

@@ -14,9 +14,7 @@ local plugins = {
 		"catppuccin/nvim",
 		name = "catppuccin",
 		config = function()
-			require("catppuccin").setup({
-				transparent_background = true,
-			})
+			require("catppuccin").setup({ transparent_background = true })
 		end,
 	},
 	{
@@ -37,15 +35,15 @@ local plugins = {
 		end,
 	},
 	{
-		"rose-pine/neovim", 
+		"rose-pine/neovim",
 		name = "rose-pine",
 		config = function()
 			require("rose-pine").setup({
 				variant = "main", -- auto, main, moon, or dawn
-    				dark_variant = "main", -- main, moon, or dawn
-    				styles = {
-    				    transparency = false,
-    				},
+				dark_variant = "main", -- main, moon, or dawn
+				styles = {
+					transparency = true,
+				},
 			})
 		end,
 	},

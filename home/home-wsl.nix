@@ -6,7 +6,8 @@
     ./modules/starship.nix
     ./modules/fastfetch.nix
     ./modules/fish.nix
-    ./modules/bash.nix
+    # TODO: fix
+    # ./modules/bash.nix
     ./modules/git.nix
     ./modules/bat.nix
   ];

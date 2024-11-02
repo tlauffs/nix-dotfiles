@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       logo = {
-        source = "nixos_small";
+        source = "none";
         padding = { right = 3; };
       };
       display = {
@@ -36,6 +36,10 @@
           key = "Shell       ";
           type = "shell";
         }
+	  {
+	    key = "Packages    ";
+	    type = "packages";
+	  }
         "break"
         {
           key = "CPU         ";
@@ -51,6 +55,10 @@
           key = "Memory      ";
           type = "memory";
         }
+        # {
+        #   key = "Disk        ";
+        #   type = "disk";
+        # }
         "break"
         {
           type = "colors";

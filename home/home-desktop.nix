@@ -4,6 +4,7 @@
     inputs.stylix.homeManagerModules.stylix
     inputs.ags.homeManagerModules.default
     ./modules/theming/theming.nix
+    ./modules/sharedPackages.nix
     ./modules/ags/ags.nix
     ./modules/hyprland/hyprland.nix
     ./modules/hyprland/hyprlock.nix
@@ -31,54 +32,27 @@
   home.stateVersion = "24.05"; # Please read the comment before changing.
   nixpkgs.config = { allowUnfree = true; };
 
-  # TODO: seperate into wsl and linux/hyprland packages
+  # Some packages are in shared-packages.nix
   home.packages = with pkgs; [
-    # programs
-    neovim
     kitty
-    fish
-    tmux
-    git
     firefox
     google-chrome
-    pavucontrol
-    networkmanagerapplet
-    #tools
-    just
-    cargo
-    fzf
-    fd
-    unzip
-    brightnessctl
-    ripgrep
-    wl-clipboard
-    nodejs
-    hyprshot
-    tofi
-    gcc
-    xfce.thunar
     vscode
     discord
     obsidian
     alacritty
-    starship
+    xfce.thunar
     vlc
     obs-studio
+    pavucontrol
+    networkmanagerapplet
+    brightnessctl
+    wl-clipboard
+    # hyprshot
     wdisplays
+    tofi
     #tools
-    zoxide
-    dust
-    tldr
-    bat
-    btop
-    fastfetch
-    yazi
-    direnv
     hyprlock
-    wlroots
-    #scripts
-    (writeShellScriptBin "ct" (builtins.readFile ./scripts/ct))
-    (writeShellScriptBin "t" (builtins.readFile ./scripts/changetheme))
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -115,17 +89,12 @@
   # shell provided by Home Manager. If you don't want to manage your shell
   # through Home Manager then you have to manually source 'hm-session-vars.sh'
   # located at either
-  #
   #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
   # or
-  #
   #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-  #
   # or
-  #
   #  /etc/profiles/per-user/tim/etc/profile.d/hm-session-vars.sh
-  #
+
   home.sessionVariables = { };
 
   # Let Home Manager install and manage itself.

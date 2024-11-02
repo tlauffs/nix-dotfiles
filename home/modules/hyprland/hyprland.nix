@@ -14,8 +14,8 @@ in {
       "$terminal" = "kitty";
       "$fileManager" = "thunar";
       # TODO: fix drun
-      # "$dmenu" = "tofi-drun | xargs hyprctl dispatch exec --";
-      "$dmenu" = "tofi-run | xargs hyprctl dispatch exec --";
+      "$dmenu" = "tofi-drun | xargs hyprctl dispatch exec --";
+      # "$dmenu" = "tofi-run | xargs hyprctl dispatch exec --";
       "$menu" = "tofi-run | xargs hyprctl dispatch exec --";
       "$emoji_menu" =
         "cat ~/nix-dotfiles/home/assets/emoji.txt | tofi | awk '{print $1}' | wl-copy";

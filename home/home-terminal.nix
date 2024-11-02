@@ -3,6 +3,7 @@
     # stylix must be added to config and home manager twice, due to standalone usage of home manager
     inputs.stylix.homeManagerModules.stylix
     ./modules/theming/theming.nix
+    ./modules/sharedPackages.nix
     ./modules/starship.nix
     ./modules/fastfetch.nix
     ./modules/fish.nix
@@ -25,34 +26,7 @@
 
   # TODO: seperate into wsl and linux/hyprland packages
   home.packages = with pkgs; [
-    neovim
-    fish
-    tmux
-    git
-    #tools
-    just
-    cargo
-    fzf
-    fd
-    unzip
-    ripgrep
     xclip
-    nodejs
-    gcc
-    starship
-    zoxide
-    dust
-    tldr
-    bat
-    btop
-    fastfetch
-    yazi
-    direnv 
-    php
-    gnumake
-    #scripts
-    (writeShellScriptBin "ct" (builtins.readFile ./scripts/ct))
-    (writeShellScriptBin "t" (builtins.readFile ./scripts/changetheme))
   ];
 
   home.file = {

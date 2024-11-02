@@ -2,7 +2,7 @@
   imports = [
     # stylix must be added to config and home manager twice, due to standalone usage of home manager
     inputs.stylix.homeManagerModules.stylix
-    ../modules/theming/theming.nix
+    ./modules/theming/theming.nix
     ./modules/starship.nix
     ./modules/fastfetch.nix
     ./modules/fish.nix

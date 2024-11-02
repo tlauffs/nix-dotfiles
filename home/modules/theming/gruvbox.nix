@@ -7,7 +7,7 @@
   # stylix.homeManagerIntegration.followSystem = false;
 
   # the stylix.image option currently needs to be set but is not bieng used since all colors are from base16Scheme
-  stylix.image = ../../home/assets/images/gruvbox.png;
+  stylix.image = ../../assets/images/gruvbox.png;
 
   stylix.base16Scheme = {
     base00 = "202020"; # bg

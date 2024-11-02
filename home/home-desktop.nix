@@ -1,9 +1,9 @@
-{ config, pkgs, inputs, ... }: {
+{ config, pkgs, system, inputs, ... }: {
   imports = [
     # stylix must be added to config and home manager twice, due to standalone usage of home manager
     inputs.stylix.homeManagerModules.stylix
     inputs.ags.homeManagerModules.default
-    ../modules/theming/theming.nix
+    ./modules/theming/theming.nix
     ./modules/ags/ags.nix
     ./modules/hyprland/hyprland.nix
     ./modules/hyprland/hyprlock.nix
@@ -74,6 +74,7 @@
     yazi
     direnv
     hyprlock
+    wlroots
     #scripts
     (writeShellScriptBin "ct" (builtins.readFile ./scripts/ct))
     (writeShellScriptBin "t" (builtins.readFile ./scripts/changetheme))
@@ -99,10 +100,14 @@
     ".config/ags".source = ./modules/ags/config;
   };
 
-  # home.sessionPath = [
-  #   "$HOME/.nix-profile/bin" # binaries
-  #   "$HOME/.nix-profile/share/applications" # .desktop files
-  # ];
+  xdg.configFile."environment.d/envvars.conf".text = ''
+    PATH="$HOME/.nix-profile/bin:$PATH"
+  '';
+
+  home.sessionPath = [
+    "$HOME/.nix-profile/bin" # binaries
+    "$HOME/.nix-profile/share/applications" # .desktop files
+  ];
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
@@ -124,4 +129,5 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+  targets.genericLinux.enable = true;
 }

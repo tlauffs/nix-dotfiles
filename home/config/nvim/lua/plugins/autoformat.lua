@@ -31,6 +31,18 @@ return { -- Autoformat
 			-- You can use a sub-list to tell conform to run *until* a formatter
 			-- is found.
 			javascript = { { "prettierd", "prettier" } },
+			php = { "php-cs-fixer" },
+		},
+		formatters = {
+			["php-cs-fixer"] = {
+				command = "php-cs-fixer",
+				args = {
+					"fix",
+					"--rules=@PSR12", -- Formatting preset. Other presets are available, see the php-cs-fixer docs.
+					"$FILENAME",
+				},
+				stdin = false,
+			},
 		},
 	},
 }

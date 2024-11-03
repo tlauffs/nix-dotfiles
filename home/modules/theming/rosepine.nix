@@ -6,8 +6,8 @@
   # stylix.homeManagerIntegration.autoImport = false;
   # stylix.homeManagerIntegration.followSystem = false;
 
-# the stylix.image option currently needs to be set but is not bieng used since all colors are from base16Scheme
-  stylix.image =  ../../assets/images/rose-pine.jpg;
+  # the stylix.image option currently needs to be set but is not bieng used since all colors are from base16Scheme
+  stylix.image = ../../assets/images/rose-pine.jpg;
 
   stylix.base16Scheme = {
     base00 = "191724";

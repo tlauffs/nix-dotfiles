@@ -36,10 +36,10 @@
           key = "Shell       ";
           type = "shell";
         }
-	  {
-	    key = "Packages    ";
-	    type = "packages";
-	  }
+        {
+          key = "Packages    ";
+          type = "packages";
+        }
         "break"
         {
           key = "CPU         ";

@@ -2,7 +2,7 @@
   imports = [
     # stylix must be added to config and home manager twice, due to standalone usage of home manager
     inputs.stylix.homeManagerModules.stylix
-    ./modules/theming/theming.nix
+          ./modules/theming/theming.nix
     ./modules/sharedPackages.nix
     ./modules/starship.nix
     ./modules/fastfetch.nix
@@ -25,7 +25,9 @@
   nixpkgs.config = { allowUnfree = true; };
 
   # TODO: seperate into wsl and linux/hyprland packages
-  home.packages = with pkgs; [ xclip ];
+  home.packages = with pkgs; [
+    xclip
+  ];
 
   home.file = {
     # Symlink tmux configuration

@@ -19,18 +19,22 @@
         nixpkgs.legacyPackages.x86_64-linux.nixfmt-classic;
 
       # Home Manager configuration for hyprland
-      homeConfigurations.tim-desktop = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${system};
-        extraSpecialArgs = { inherit inputs; };
-        modules = [ ./home/home-desktop.nix ]; # Linux-specific Home Manager config
-      };
+      homeConfigurations.tim-desktop =
+        home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.${system};
+          extraSpecialArgs = { inherit inputs; };
+          modules =
+            [ ./home/home-desktop.nix ]; # Linux-specific Home Manager config
+        };
 
       # Home Manager configuration for WSL
-      homeConfigurations.tim-terminal = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${system};
-        extraSpecialArgs = { inherit inputs; };
-        modules = [ ./home/home-terminal.nix ]; # WSL-specific Home Manager config
-      };
+      homeConfigurations.tim-terminal =
+        home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.${system};
+          extraSpecialArgs = { inherit inputs; };
+          modules =
+            [ ./home/home-terminal.nix ]; # WSL-specific Home Manager config
+        };
 
     };
 }
